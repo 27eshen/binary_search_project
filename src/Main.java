@@ -12,7 +12,7 @@ public class Main extends PApplet {
     int high;
     int target = 0;
     int count = 0;
-    int mid;
+    int mid = -1;
     String txt = "";
 
     public static void main(String[] args) {
@@ -154,6 +154,7 @@ public class Main extends PApplet {
         low = 0;
         target = 0;
         count = 0;
+        mid = -1;
         txt = "RESET COMPLETE. PRESS 's' TO SORT.";
         click = false;
         sPressed = false;
