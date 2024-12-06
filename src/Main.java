@@ -72,14 +72,14 @@ public class Main extends PApplet {
             return;
         }
 
-        if (key >= '0' && key <= '9') { // Only process numeric keys
-            target = key - 48; // Convert character to integer
+        if (key >= '0' && key <= '9') {
+            target = key - 48;
             System.out.println("Target set to: " + target);
 
             if (target < array.get(0).getValue() || target > array.get(array.size() - 1).getValue()) {
                 System.out.println("Invalid target: " + target + ". Out of bounds.");
                 txt = "INVALID TARGET: OUT OF BOUNDS!";
-                target = 0; // Reset to default
+                target = 0;
             }
         } else if (key == 'r') {
             reset();
@@ -95,7 +95,7 @@ public class Main extends PApplet {
             txt = "ERROR - SORT THE ARRAY FIRST!";
             return;
         }
-        if (low <= high) { // Continue the search only if it's in progress
+        if (low <= high) {
             binarySearchIterative();
         } else {
             System.out.println("Search complete. No further clicks allowed.");
@@ -110,20 +110,20 @@ public class Main extends PApplet {
         }
 
         if (low <= high) {
-            mid = (low + high) / 2; // Calculate mid-point
+            mid = (low + high) / 2;
             System.out.println("mid index: " + mid);
-            array.get(mid).compared = true; // Highlight current mid
+            array.get(mid).compared = true;
 
             int result = array.get(mid).compareTo(target);
-            if (result == -1) { // Target is smaller
+            if (result == -1) {
                 high = mid - 1;
                 txt = "NOT FOUND YET! Target is smaller than " + array.get(mid).getValue();
                 System.out.println(txt);
-            } else if (result == 1) { // Target is larger
+            } else if (result == 1) {
                 low = mid + 1;
                 txt = "NOT FOUND YET! Target is larger than " + array.get(mid).getValue();
                 System.out.println(txt);
-            } else { // Target found
+            } else { 
                 txt = "TARGET FOUND AT INDEX " + mid + ". CLICK 'r' TO RESET.";
                 System.out.println(txt);
                 low = high + 1;
@@ -169,7 +169,7 @@ public class Main extends PApplet {
     public void loadTable(){
         array.clear();
         Table table = loadTable("src/data/data.csv", "header");
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 9; i++) {
             int id = table.getInt(i, "iD");
             int year = table.getInt(i,"year");
             int badges = table.getInt(i, "badges");
